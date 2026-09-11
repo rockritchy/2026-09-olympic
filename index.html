@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Olympic Grand Loop</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Olympic Grand Loop</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 :root{--bg:#f5f3ec;--ink:#1f2a22;--ink-2:#4a5a4e;--ink-3:#7a8a7d;--rule:#d8d6cb;--panel:#ecebe1;--moss:#2f6b45;--moss-soft:#dfeadf;--gold:#b8862b;--gold-soft:#f3e7c8;--slate:#4d6b8a;--rust:#a3512e;--rust-soft:#f3dfd5;--water:#cfdde3;--land:#e9e5d6;--shore:#b9c7cc;--park:#cddcc9;--park-edge:#5d8a66;--road:#8a7d66;--d1:#2f6b45;--d2:#b8862b;--d3:#4d6b8a}
@@ -72,37 +73,13 @@ details a{color:var(--slate)}
 a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 @media (min-width:560px){.wx{grid-template-columns:repeat(3,1fr)} .wx .s{grid-column:auto} .wx .c{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-</style></head><body>
 
-<div class="wrap">
-<div class="eyebrow">Sat Sep 5 to Mon Sep 7, 2026 · Ian and Johnna</div>
-<h1>Olympic Grand Loop</h1>
-<p style="color:var(--ink-2);margin-top:8px;font-size:15.5px">Ridge Sunday morning, rainforest camp Sunday night, coast at sunset, home the other way around. Tap a checkbox as you finish each stop; it sticks on this phone. Green buttons open turn-by-turn directions from wherever you are.</p>
-
-<nav class="tabs"><a href="#sat" class="d1">Sat</a><a href="#sun" class="d2">Sun</a><a href="#mon" class="d3">Mon</a><a href="#info">Info</a></nav>
-
-<div class="sum"><b>The plan in one breath.</b> Leave 10:30, oysters on Hood Canal at 1:30, tent up at Heart O’ the Hills by 4, easy falls walk on Lake Crescent, dinner in Port Angeles. Sunday: Hurricane Hill at 7, Sol Duc Falls loop at 11, Forks for fuel, pitch at Minnie Peterson (free, Discover Pass) by 4, Second Beach for the 7:45 sunset. Monday: Hoh loops at 7:45, Ruby Beach, lunch at Kalaloch, on the road home by 2:15, driveway by 6:30. Campfires are banned everywhere; the propane stove is the kitchen. Total: about 650 miles, about 16 miles on foot, $24 in camp fees plus a $11 Discover Pass and $10 beach parking.</div>
-
-<h2>Weather</h2>
-<p style="font-size:14px;color:var(--ink-3)">NWS point forecasts issued Fri Sep 4, 11:26 pm. Re-check with the links below each morning once you have signal.</p>
-<div class="wx">
-  <div class="c"><div><div class="d">Saturday</div><div class="t bad">Showers on the ridge, clearing</div></div><div class="hi">Ridge 51 / 40<br>Coast 60 / 53</div><div class="s">Hurricane Ridge 60% rain, possible thunder before 3 pm. Lowlands 30% before 11 am then sunny. Travel day, stay low.</div></div>
-  <div class="c"><div><div class="d">Sunday</div><div class="t good">Sunny</div></div><div class="hi">Ridge 56 / 42<br>Coast 60 / 55</div><div class="s">Zero precip in the forecast anywhere. Hoh valley high 67. Sunset 7:45 pm at La Push.</div></div>
-  <div class="c"><div><div class="d">Labor Day</div><div class="t good">Sunny inland, marine layer coast</div></div><div class="hi">Ridge 55 / 41<br>Coast 59 / 55</div><div class="s">Hoh 63 and mostly sunny. Coast mostly cloudy but dry. Home before any change.</div></div>
-</div>
-<div class="wxlinks">
-  <a class="chip" href="https://forecast.weather.gov/MapClick.php?lat=47.9691&lon=-123.4986">Hurricane Ridge forecast</a>
-  <a class="chip" href="https://forecast.weather.gov/MapClick.php?lat=47.9622&lon=-123.8499">Sol Duc forecast</a>
-  <a class="chip" href="https://forecast.weather.gov/MapClick.php?lat=47.8607&lon=-123.9348">Hoh Rain Forest forecast</a>
-  <a class="chip" href="https://forecast.weather.gov/MapClick.php?lat=47.9060&lon=-124.6300">La Push forecast</a>
-  <a class="chip" href="https://forecast.weather.gov/MapClick.php?lat=47.6079&lon=-124.3739">Kalaloch forecast</a>
-  <a class="chip alert" href="https://www.nps.gov/olym/planyourvisit/conditions.htm">Park alerts and road status</a>
-  <a class="chip alert" href="https://www.recreation.gov/camping/campgrounds/247592">Hoh campground cancellations</a>
-</div>
-
-<h2>Map</h2>
-<figure>
-<svg class="map" viewBox="0 84 891 916" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Route map, Olympic Peninsula grand loop">
+.ro{font:500 12px "IBM Plex Mono",monospace;color:var(--ink-3);margin-top:6px}
+.saving{font:500 12px "IBM Plex Mono",monospace;color:var(--gold)}
+</style>
+</head><body>
+<div class="wrap" id="root"></div>
+<template id="map-src"><svg class="map" viewBox="0 84 891 916" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Route map, Olympic Peninsula grand loop">
 <rect width="1000" height="1033" fill="var(--water)"/>
 <path d="M1446.3 1330.7 L1134.3 1331.9 L1134.0 1332.6 L764.6 1330.9 L709.6 1332.7 L648.6 1333.3 L643.1 1069.8 L716.2 1068.5 L734.5 1069.2 L734.4 1087.9 L1151.0 1089.0 L1311.9 1110.3 L1343.9 1075.4 L1475.5 1075.4 L1520.7 1121.5 L1477.7 1236.9 L1505.8 1316.2 L1446.3 1330.7 Z M845.4 835.4 L831.9 813.1 L771.7 881.3 L716.5 881.0 L591.7 882.5 L585.1 601.8 L585.0 544.1 L825.9 544.6 L787.9 600.1 L859.9 599.3 L891.2 600.1 L890.7 675.1 L869.5 759.7 L882.0 810.5 L855.8 835.0 L845.4 835.4 Z M1066.4 347.0 L1056.8 347.1 L1051.7 345.5 L1045.4 335.5 L1045.3 331.6 L1047.5 324.9 L1047.5 321.5 L1044.9 314.2 L1033.6 297.9 L1027.2 296.4 L1021.2 298.8 L1015.3 302.6 L1014.0 306.6 L1012.5 307.9 L1001.4 311.6 L999.1 307.4 L999.6 305.1 L1003.0 299.5 L1003.7 295.0 L1003.1 292.8 L995.6 286.2 L986.2 283.7 L975.1 270.4 L979.7 265.4 L981.0 260.0 L980.5 254.1 L972.2 243.5 L972.5 239.1 L975.1 233.6 L979.0 219.0 L977.3 203.1 L974.1 192.4 L970.7 187.8 L963.8 185.1 L953.9 185.5 L947.3 188.9 L944.6 190.7 L943.7 190.3 L940.6 177.7 L937.8 173.3 L929.8 165.5 L919.6 161.4 L915.4 155.1 L907.4 151.4 L904.3 145.6 L904.4 143.6 L911.9 122.6 L920.9 110.1 L925.0 94.1 L931.7 86.9 L946.2 61.5 L950.0 48.5 L950.1 31.3 L958.8 28.7 L963.0 29.5 L964.1 31.6 L963.5 33.0 L962.0 33.5 L961.8 35.1 L962.7 35.4 L966.2 34.1 L970.8 27.7 L974.0 24.8 L977.4 25.9 L979.7 28.6 L980.3 34.1 L984.8 35.4 L983.1 56.1 L984.7 62.4 L993.3 65.7 L999.4 69.6 L1014.8 83.6 L1018.9 90.3 L1019.7 96.6 L1019.2 98.3 L1013.2 104.4 L1011.8 106.2 L1008.3 108.1 L999.2 108.7 L996.4 108.4 L989.2 100.1 L985.2 98.1 L978.5 97.9 L970.2 100.6 L966.6 103.9 L969.2 107.8 L967.9 116.5 L955.4 119.3 L955.0 123.1 L948.2 135.1 L948.5 145.9 L964.7 148.0 L965.9 146.9 L975.5 156.0 L983.4 170.4 L984.4 172.7 L985.8 180.4 L989.2 190.0 L992.2 194.5 L996.4 213.3 L995.7 216.7 L990.6 222.6 L990.5 224.5 L998.0 240.5 L1002.1 256.5 L1004.8 258.0 L1014.6 253.5 L1015.7 252.3 L1016.9 241.8 L1014.4 238.1 L1010.7 228.1 L1016.0 227.5 L1025.6 229.6 L1038.4 246.2 L1044.2 255.4 L1051.6 261.4 L1064.9 266.8 L1070.7 268.5 L1075.5 268.2 L1076.8 289.9 L1078.6 293.5 L1085.4 302.4 L1086.8 310.2 L1087.1 317.0 L1086.6 320.6 L1083.1 330.8 L1079.2 334.1 L1075.3 339.7 L1075.7 348.4 L1075.1 351.1 L1073.7 352.4 L1069.4 351.3 L1066.4 347.0 Z M1062.7 127.7 L1065.8 134.4 L1068.3 136.5 L1067.2 142.9 L1066.9 142.5 L1054.1 140.1 L1051.9 138.0 L1050.5 137.8 L1043.6 140.3 L1041.9 142.7 L1041.9 144.0 L1043.7 151.8 L1045.9 152.0 L1047.1 153.8 L1046.9 155.3 L1041.3 163.5 L1038.3 165.8 L1037.0 164.7 L1034.7 165.2 L1031.1 169.0 L1030.9 177.0 L1032.3 182.8 L1046.8 206.0 L1060.2 217.4 L1074.1 234.0 L1082.5 250.7 L1083.3 254.2 L1081.3 255.2 L1075.2 253.3 L1070.6 248.4 L1069.2 245.6 L1068.1 239.8 L1064.9 235.4 L1054.9 224.0 L1043.6 216.8 L1035.9 206.3 L1031.3 207.1 L1027.5 212.4 L1026.1 212.6 L1016.5 204.0 L1011.9 186.1 L1005.6 171.8 L1004.8 155.1 L1006.8 146.5 L1006.4 135.4 L1008.3 129.2 L1020.1 124.5 L1021.9 124.8 L1022.7 126.9 L1024.6 127.8 L1030.0 128.0 L1032.8 125.7 L1036.2 116.4 L1037.4 115.8 L1062.4 127.9 L1062.7 127.7 Z M913.4 457.6 L917.3 460.7 L920.4 459.8 L924.9 452.5 L926.2 444.7 L928.3 440.1 L938.9 433.5 L941.7 420.4 L942.6 418.9 L957.3 403.3 L968.2 396.2 L971.9 386.7 L974.7 382.9 L989.7 382.4 L990.0 371.7 L984.2 353.7 L983.4 346.6 L979.9 341.9 L971.0 338.7 L969.4 334.6 L970.9 329.8 L973.1 328.7 L976.6 328.8 L977.6 334.5 L981.7 340.4 L986.2 341.9 L1000.4 342.7 L1009.7 351.2 L1015.7 367.4 L1016.2 378.3 L1019.1 399.0 L1020.8 402.5 L1029.3 409.5 L1029.4 413.5 L1028.2 416.8 L1023.8 421.4 L1023.7 428.1 L1034.2 441.5 L1034.6 447.2 L1034.0 451.9 L1031.6 454.4 L1026.7 455.9 L1018.4 456.3 L1015.1 455.7 L1013.3 454.2 L1005.5 453.6 L998.1 454.6 L1003.0 477.0 L1008.3 480.9 L1010.5 480.8 L1011.3 478.9 L1016.9 478.4 L1019.7 484.6 L1019.8 493.2 L1018.0 502.9 L1013.8 515.5 L1020.8 523.4 L1024.7 525.9 L1024.9 529.5 L1024.1 533.3 L1021.6 537.1 L1022.5 549.7 L1024.4 555.7 L1028.8 557.2 L1030.8 559.1 L1020.1 564.6 L1013.8 565.3 L1008.7 569.0 L1006.7 570.5 L1003.0 576.8 L1003.3 588.7 L1001.2 594.9 L1001.5 597.9 L1007.4 598.8 L1011.7 597.6 L1021.5 603.3 L1024.0 606.5 L1028.3 604.9 L1005.8 675.7 L890.7 675.1 L891.2 600.1 L859.9 599.3 L787.9 600.1 L825.9 544.6 L898.6 501.6 L913.4 457.6 Z M1028.3 604.9 L1035.7 606.7 L1042.4 610.9 L1038.9 616.5 L1039.1 621.6 L1050.7 634.8 L1047.9 640.2 L1047.8 666.3 L1048.8 672.9 L1053.3 676.3 L1067.4 678.1 L1076.7 685.0 L1074.6 687.1 L1064.4 689.7 L1048.8 699.9 L1044.2 706.7 L1041.7 714.2 L1040.2 714.7 L1034.9 713.4 L1025.5 719.5 L1025.6 721.3 L1024.7 722.7 L1019.6 722.4 L1013.5 720.7 L1011.2 717.5 L1009.5 712.8 L1010.4 704.2 L1005.2 704.0 L1009.4 691.7 L1005.0 683.6 L1005.8 675.7 L1028.3 604.9 Z M1057.3 728.9 L1080.8 719.0 L1092.6 715.5 L1097.9 710.9 L1097.5 683.1 L1096.3 677.3 L1093.4 672.2 L1087.8 667.4 L1084.7 650.6 L1079.5 646.9 L1072.5 645.1 L1079.1 639.5 L1081.3 628.8 L1082.0 625.1 L1080.3 620.6 L1071.0 611.7 L1066.7 603.3 L1067.9 597.1 L1065.9 580.8 L1060.9 568.7 L1056.0 564.1 L1064.4 559.0 L1070.8 551.4 L1075.9 558.2 L1078.2 559.5 L1083.4 558.4 L1090.0 554.3 L1091.5 549.2 L1089.2 542.7 L1079.2 533.0 L1071.3 528.1 L1067.9 528.6 L1063.4 526.7 L1058.9 522.9 L1052.2 510.6 L1061.8 496.9 L1063.5 490.9 L1068.2 483.0 L1073.7 478.2 L1075.5 473.4 L1075.8 471.3 L1076.9 465.2 L1072.8 452.4 L1073.8 446.3 L1067.6 437.4 L1066.8 433.8 L1238.9 435.5 L1239.0 435.5 L1270.4 434.4 L1419.8 434.5 L1421.3 434.0 L1622.2 432.5 L1644.2 480.0 L1624.5 550.4 L1568.2 587.1 L1538.7 626.5 L1488.9 663.2 L1485.8 746.4 L1544.3 840.2 L1508.8 879.8 L1327.5 824.1 L1309.1 843.3 L1218.3 825.1 L1176.5 769.7 L1139.5 769.6 L1139.4 769.6 L1093.5 769.6 L1057.3 728.9 Z M1046.0 763.7 L1048.8 762.8 L1052.3 761.8 L1057.4 754.0 L1061.2 749.6 L1059.2 746.1 L1054.7 743.8 L1051.2 744.8 L1045.8 741.9 L1046.5 738.1 L1055.0 729.9 L1057.3 728.9 L1093.5 769.6 L1139.4 769.6 L1139.5 769.6 L1176.5 769.7 L1218.3 825.1 L1309.1 843.3 L1327.5 824.1 L1508.8 879.8 L1475.4 985.7 L1446.4 1017.6 L1475.5 1075.4 L1343.9 1075.4 L1311.9 1110.3 L1151.0 1089.0 L1077.0 1035.9 L1025.4 1021.1 L962.0 950.6 L908.9 844.7 L901.7 835.7 L894.6 823.4 L882.0 810.5 L869.5 759.7 L890.7 675.1 L1005.8 675.7 L1005.0 683.6 L1009.4 691.7 L1005.2 704.0 L999.3 703.8 L997.5 711.5 L990.7 724.6 L988.7 725.2 L989.7 730.3 L990.8 732.1 L1001.0 731.6 L1001.1 730.8 L1004.2 730.3 L1007.2 731.5 L1034.1 756.9 L1046.0 763.7 Z M882.0 810.5 L894.6 823.4 L901.7 835.7 L908.9 844.7 L962.0 950.6 L1025.4 1021.1 L1077.0 1035.9 L1151.0 1089.0 L734.4 1087.9 L734.5 1069.2 L735.5 938.3 L716.5 881.0 L771.7 881.3 L831.9 813.1 L845.4 835.4 L855.8 835.0 L882.0 810.5 Z M836.0 248.4 L836.2 248.7 L839.7 252.8 L857.5 260.1 L869.9 255.7 L866.2 248.0 L857.3 241.3 L855.6 225.4 L858.1 218.9 L876.9 203.7 L898.2 198.2 L908.5 198.0 L913.5 214.9 L903.0 221.5 L900.7 221.9 L894.4 227.7 L892.0 230.8 L890.7 233.9 L904.1 255.9 L904.1 259.5 L905.8 261.8 L916.4 258.6 L917.4 255.5 L917.7 245.8 L916.9 244.6 L914.2 244.7 L913.8 243.9 L920.3 231.6 L926.7 227.5 L935.4 223.9 L940.3 224.8 L938.4 228.0 L938.2 234.2 L942.5 262.9 L944.7 267.0 L948.3 269.8 L947.9 279.3 L940.5 285.1 L939.1 285.0 L936.0 280.8 L934.0 280.0 L924.6 285.2 L926.9 298.3 L934.2 307.9 L942.1 308.4 L944.0 311.1 L945.1 317.1 L941.4 326.5 L941.5 329.4 L942.6 331.5 L951.1 335.2 L953.2 334.9 L956.1 341.4 L954.8 344.7 L954.3 351.7 L958.0 358.3 L962.0 361.5 L970.1 361.3 L973.8 363.1 L964.4 371.2 L963.5 375.4 L962.5 376.8 L956.5 378.3 L949.4 376.0 L937.5 375.6 L938.7 380.7 L942.8 387.0 L941.9 394.5 L939.7 399.2 L926.3 411.1 L920.9 413.2 L913.9 419.2 L912.8 436.3 L909.6 446.8 L909.3 454.3 L913.4 457.6 L898.6 501.6 L825.9 544.6 L585.0 544.1 L585.1 601.8 L349.1 601.4 L215.8 591.4 L214.8 583.6 L213.5 582.4 L210.3 559.9 L207.9 548.9 L206.6 546.1 L203.4 527.7 L197.4 506.3 L190.4 489.7 L186.9 467.7 L184.7 459.2 L182.4 454.2 L172.2 441.9 L164.5 440.9 L162.4 439.1 L159.9 421.2 L156.6 408.5 L153.0 404.9 L149.3 404.1 L146.6 405.0 L134.8 395.7 L126.8 383.4 L126.5 378.8 L125.1 376.8 L113.8 369.3 L104.5 367.9 L104.0 367.5 L584.4 367.2 L584.4 376.3 L826.4 376.4 L826.5 248.4 L836.0 248.4 Z M648.6 1333.3 L488.7 1332.4 L487.9 1394.3 L487.6 1394.9 L482.0 1393.9 L474.1 1403.7 L471.0 1404.7 L467.4 1404.0 L464.1 1400.4 L458.5 1397.6 L453.9 1398.2 L423.7 1426.5 L409.0 1422.8 L404.5 1419.1 L389.4 1402.5 L382.9 1393.2 L382.2 1391.6 L382.5 1388.0 L380.6 1385.6 L376.0 1381.8 L369.0 1379.1 L360.6 1377.5 L356.6 1382.3 L354.1 1389.7 L352.7 1398.2 L350.4 1403.2 L343.1 1401.3 L334.5 1408.8 L333.8 1407.5 L334.0 1403.9 L336.4 1389.9 L338.5 1384.1 L341.5 1370.3 L344.2 1331.8 L344.6 1317.1 L344.8 1262.8 L342.6 1222.3 L339.8 1193.1 L339.3 1174.2 L339.7 1171.5 L342.3 1166.5 L345.0 1164.5 L348.5 1164.4 L354.0 1174.1 L346.6 1179.3 L347.5 1182.8 L357.0 1199.8 L359.3 1205.3 L359.5 1217.2 L358.3 1238.2 L355.8 1260.9 L358.2 1282.4 L369.0 1284.4 L373.6 1282.4 L373.5 1280.7 L372.1 1278.6 L372.7 1265.9 L374.6 1260.5 L376.7 1259.5 L378.7 1260.2 L378.6 1265.0 L382.2 1274.4 L383.5 1275.6 L394.1 1273.3 L403.8 1253.6 L414.5 1243.9 L414.2 1240.2 L415.5 1234.6 L411.6 1225.0 L405.7 1218.1 L404.2 1215.1 L403.3 1208.8 L400.5 1201.2 L396.0 1196.4 L388.9 1191.7 L387.3 1185.2 L386.7 1170.5 L395.4 1167.6 L403.5 1161.6 L403.9 1159.4 L402.9 1147.1 L406.3 1143.2 L415.0 1140.0 L428.3 1130.3 L434.2 1127.8 L436.4 1118.6 L435.3 1116.6 L429.5 1111.6 L425.7 1111.2 L423.2 1109.7 L416.1 1097.1 L413.6 1097.1 L408.4 1099.3 L405.9 1102.8 L406.2 1105.4 L407.5 1109.7 L405.7 1112.2 L400.4 1113.1 L391.9 1113.1 L383.2 1106.2 L380.4 1107.9 L378.4 1113.5 L380.4 1120.4 L384.0 1126.1 L381.0 1127.3 L375.0 1124.6 L372.1 1124.3 L368.1 1128.0 L359.8 1123.7 L351.1 1116.5 L351.3 1114.8 L349.4 1112.9 L342.1 1107.7 L334.4 1106.9 L329.5 1102.6 L327.6 1099.6 L328.2 1092.8 L327.5 1075.0 L326.8 1068.7 L643.1 1069.8 L648.6 1333.3 Z M891.2 -97.9 L889.2 -94.2 L890.8 -87.4 L897.1 -81.8 L903.8 -72.6 L904.2 -69.8 L903.3 -65.9 L898.9 -61.4 L896.3 -51.9 L896.8 -47.1 L901.1 -43.8 L900.4 -38.0 L891.1 -28.7 L884.2 -24.4 L883.5 -21.9 L882.7 -5.7 L885.6 -1.8 L888.0 3.8 L890.2 10.9 L889.8 13.7 L886.0 17.9 L880.1 16.7 L859.1 20.5 L854.9 20.1 L850.6 17.6 L852.6 9.1 L846.4 8.4 L841.8 4.4 L840.1 6.6 L835.7 6.5 L840.7 -2.1 L839.1 -5.4 L836.1 -7.0 L831.4 -4.0 L820.9 -0.7 L787.3 -6.5 L779.1 -13.9 L774.9 -19.0 L752.4 -27.5 L742.8 -35.7 L738.7 -41.3 L733.4 -51.3 L733.0 -55.3 L734.0 -57.6 L734.1 -63.0 L729.4 -68.7 L727.7 -72.4 L727.9 -76.5 L729.6 -78.9 L729.1 -83.3 L723.9 -88.4 L718.4 -87.9 L716.2 -90.5 L716.1 -94.3 L719.3 -101.4 L726.8 -111.1 L738.4 -112.1 L743.6 -111.5 L745.4 -109.8 L757.7 -111.3 L761.5 -105.1 L761.6 -103.3 L760.0 -99.4 L760.2 -95.4 L771.9 -91.5 L778.2 -85.3 L783.3 -76.9 L789.7 -73.2 L797.8 -71.5 L809.9 -72.2 L810.4 -77.4 L808.8 -80.5 L806.5 -82.7 L802.3 -84.4 L797.1 -84.1 L789.5 -91.5 L793.5 -93.3 L794.2 -96.5 L786.4 -104.5 L784.1 -104.2 L783.2 -110.4 L794.1 -118.8 L797.6 -124.3 L797.9 -127.5 L800.0 -132.3 L809.2 -140.2 L810.9 -143.7 L826.5 -157.1 L829.9 -163.2 L829.4 -165.7 L839.9 -170.1 L850.2 -171.1 L858.3 -169.2 L876.9 -160.2 L890.2 -150.2 L891.2 -148.2 L916.1 -136.8 L916.5 -136.0 L910.9 -128.8 L898.3 -119.7 L894.7 -118.4 L887.1 -109.1 L887.5 -106.7 L891.7 -99.8 L891.8 -98.3 L891.2 -97.9 Z M718.3 -151.5 L723.4 -151.6 L729.5 -148.4 L740.0 -140.7 L747.4 -133.5 L751.3 -127.2 L758.2 -118.4 L752.3 -118.1 L745.7 -120.8 L710.5 -141.6 L701.2 -150.7 L701.5 -154.2 L711.8 -154.7 L718.3 -151.5 Z M793.3 -172.9 L795.8 -175.1 L800.1 -175.7 L801.1 -173.5 L802.1 -157.7 L798.1 -151.7 L795.1 -149.4 L785.9 -145.6 L786.2 -147.6 L788.8 -151.9 L788.5 -154.9 L783.9 -158.6 L773.7 -161.3 L786.9 -172.5 L793.3 -172.9 Z M1099.3 277.5 L1107.2 286.8 L1105.8 287.6 L1097.3 283.8 L1093.7 278.2 L1096.4 276.7 L1099.3 277.5 Z M1419.8 434.5 L1270.4 434.4 L1239.0 435.5 L1238.9 435.5 L1066.8 433.8 L1066.5 432.6 L1067.4 417.4 L1068.7 414.5 L1085.5 393.3 L1088.5 392.1 L1091.3 389.4 L1093.1 385.8 L1095.9 374.7 L1095.6 370.9 L1094.1 367.7 L1096.3 356.3 L1099.2 347.3 L1103.5 339.7 L1104.0 338.8 L1104.5 336.2 L1103.8 331.3 L1105.6 323.3 L1118.2 318.5 L1130.9 316.6 L1139.1 309.2 L1140.7 305.7 L1138.1 298.4 L1139.0 285.8 L1139.7 282.4 L1141.3 279.7 L1138.4 271.2 L1116.9 258.3 L1106.2 243.1 L1099.3 235.2 L1097.3 230.5 L1089.9 227.4 L1080.9 210.4 L1080.4 209.2 L1081.0 198.3 L1080.5 192.8 L1078.2 184.1 L1081.1 177.8 L1081.7 169.4 L1077.2 165.9 L1073.0 156.8 L1071.4 149.9 L1067.2 142.9 L1068.3 136.5 L1065.8 134.4 L1062.7 127.7 L1067.2 124.4 L1068.7 116.4 L1077.5 104.7 L1075.3 99.3 L1074.7 98.4 L1673.3 99.7 L1714.6 185.0 L1667.2 241.9 L1607.2 264.1 L1622.6 291.9 L1595.6 356.8 L1643.2 402.7 L1622.2 432.5 L1421.3 434.0 L1419.8 434.5 Z M1781.7 -133.9 L1712.8 -123.2 L1564.7 -123.3 L1026.6 -126.1 L1024.4 -130.1 L1021.6 -133.1 L1018.8 -141.8 L1013.4 -169.8 L1015.0 -174.9 L1019.3 -177.2 L1023.8 -185.4 L1025.9 -194.3 L1017.0 -198.6 L1009.5 -205.5 L1006.2 -210.5 L992.4 -212.5 L979.6 -207.5 L979.1 -206.2 L975.3 -199.5 L966.2 -190.2 L962.1 -184.4 L961.7 -182.3 L966.8 -174.9 L972.8 -171.0 L975.8 -162.0 L975.6 -160.4 L971.7 -157.4 L969.4 -157.3 L965.0 -159.2 L958.1 -166.5 L946.3 -182.7 L949.2 -192.6 L951.7 -196.2 L957.6 -209.1 L958.4 -214.0 L957.9 -216.2 L953.7 -216.2 L952.3 -217.2 L943.4 -227.7 L937.5 -228.8 L936.0 -227.7 L935.4 -226.2 L935.0 -222.6 L935.1 -218.8 L933.4 -217.1 L930.5 -217.0 L929.9 -220.4 L930.8 -237.4 L929.6 -246.8 L927.4 -256.3 L924.9 -260.0 L897.5 -280.8 L894.3 -285.9 L894.5 -287.0 L898.4 -287.0 L912.5 -297.7 L914.1 -300.5 L915.1 -304.1 L914.5 -310.3 L910.6 -315.4 L906.0 -317.5 L904.2 -317.9 L896.7 -310.9 L883.4 -315.6 L881.9 -317.1 L881.5 -319.4 L883.8 -326.6 L892.7 -338.9 L902.5 -349.2 L906.0 -349.6 L910.3 -353.0 L910.4 -354.7 L909.6 -356.5 L1061.8 -356.4 L1062.6 -356.4 L1196.4 -356.4 L1347.3 -353.3 L1619.0 -355.9 L1738.6 -355.7 L1775.0 -325.5 L1789.7 -214.9 L1824.1 -177.0 L1781.7 -133.9 Z M789.0 -356.4 L795.0 -340.3 L792.1 -338.2 L786.5 -340.3 L777.9 -339.1 L767.9 -339.6 L767.6 -346.3 L765.0 -356.2 L789.0 -356.4 Z M936.6 -185.4 L948.3 -165.6 L950.8 -159.5 L958.7 -155.8 L970.3 -142.5 L974.1 -125.9 L970.9 -126.2 L962.9 -130.3 L946.3 -149.0 L938.3 -168.8 L933.8 -172.3 L926.6 -172.2 L925.2 -176.4 L925.1 -181.8 L928.0 -192.8 L933.5 -189.5 L936.6 -185.4 Z M956.8 -89.4 L959.7 -89.3 L965.5 -78.9 L973.5 -71.7 L981.3 -66.9 L985.2 -65.5 L987.5 -63.3 L990.0 -51.0 L985.4 -53.1 L982.5 -55.7 L978.3 -56.1 L969.6 -51.1 L962.7 -49.1 L960.7 -49.0 L956.8 -50.8 L955.6 -52.5 L954.6 -56.8 L955.0 -63.9 L956.2 -67.1 L955.5 -86.1 L956.8 -89.4 Z M928.5 -102.5 L937.1 -94.6 L938.4 -90.8 L947.5 -76.7 L939.4 -60.6 L927.3 -57.9 L925.0 -58.5 L924.3 -64.5 L921.5 -74.6 L919.0 -76.8 L917.6 -80.0 L917.4 -86.5 L923.9 -98.9 L928.5 -102.5 Z M935.1 -110.4 L935.6 -111.7 L946.0 -116.1 L953.5 -103.2 L949.5 -102.0 L944.9 -103.3 L940.8 -105.4 L935.1 -110.4 Z M1074.7 98.4 L1072.0 94.1 L1061.4 79.8 L1054.7 74.6 L1046.7 72.3 L1032.4 58.1 L1029.4 57.0 L1022.7 56.9 L1018.5 55.1 L1007.2 43.0 L1004.6 34.1 L1001.1 32.3 L998.0 28.4 L996.3 15.0 L999.5 6.8 L996.8 3.6 L992.0 3.2 L989.0 4.3 L986.3 13.4 L972.0 22.7 L956.6 26.8 L949.9 21.7 L946.0 16.3 L943.9 6.8 L944.8 3.8 L946.0 4.3 L946.0 5.2 L949.0 4.8 L954.4 -2.6 L953.2 -14.8 L950.2 -18.2 L939.5 -17.3 L936.6 -9.5 L936.7 -6.8 L934.5 -4.9 L930.3 -7.5 L929.4 -9.1 L929.1 -18.6 L934.1 -30.7 L941.5 -38.2 L943.9 -37.3 L944.8 -35.2 L947.2 -34.8 L971.7 -46.1 L975.2 -46.6 L978.3 -45.8 L978.9 -40.1 L992.1 -37.6 L997.0 -31.5 L1005.5 -10.8 L1007.5 -10.4 L1010.0 -11.6 L1015.2 -10.0 L1016.8 -7.6 L1021.4 -7.0 L1034.0 -13.4 L1034.9 -14.3 L1034.9 -16.1 L1033.1 -19.2 L1030.9 -20.5 L1028.9 -27.4 L1028.3 -38.5 L1028.8 -46.4 L1028.1 -50.4 L1022.4 -68.5 L1019.8 -74.1 L1010.7 -75.7 L1007.8 -76.6 L1006.6 -80.2 L1006.6 -81.3 L1016.4 -82.7 L1023.5 -81.3 L1026.8 -74.0 L1029.4 -70.8 L1031.1 -70.5 L1045.8 -77.5 L1050.8 -84.9 L1054.2 -96.5 L1044.0 -111.4 L1037.3 -113.4 L1027.4 -124.6 L1026.6 -126.1 L1564.7 -123.3 L1712.8 -123.2 L1781.7 -133.9 L1803.7 -52.7 L1750.4 -61.4 L1658.3 -28.9 L1643.5 86.1 L1673.3 99.7 L1074.7 98.4 Z M747.2 191.9 L750.1 191.4 L753.7 193.5 L767.3 208.4 L775.6 212.7 L782.4 224.1 L787.5 238.1 L797.1 235.3 L802.6 232.0 L813.3 228.5 L827.8 226.8 L835.2 228.3 L840.0 231.4 L838.7 233.5 L836.2 242.6 L835.7 247.4 L836.0 248.4 L826.5 248.4 L826.4 376.4 L584.4 376.3 L584.4 367.2 L104.0 367.5 L97.6 362.7 L95.6 359.8 L95.8 356.9 L88.9 332.2 L86.1 327.1 L81.6 321.8 L77.2 313.4 L77.9 301.8 L74.3 280.3 L73.0 267.2 L71.6 258.7 L70.3 255.0 L68.0 252.5 L66.7 245.7 L67.3 234.2 L70.2 230.8 L70.8 226.8 L67.4 216.3 L55.8 191.6 L51.4 186.9 L50.8 185.0 L51.4 180.7 L63.4 171.4 L66.9 162.3 L69.2 153.2 L69.4 148.6 L63.0 136.3 L62.6 135.6 L65.4 131.8 L71.9 125.7 L73.5 119.2 L75.5 99.9 L78.6 99.2 L80.0 97.2 L81.7 90.1 L83.1 76.8 L78.2 70.1 L66.7 64.7 L59.2 54.0 L53.5 50.9 L51.8 47.6 L51.4 44.4 L54.0 41.3 L57.8 38.9 L67.6 39.4 L85.5 38.3 L91.6 41.6 L95.2 47.4 L103.6 46.4 L109.0 44.5 L109.9 44.0 L112.7 49.3 L120.5 54.1 L124.0 53.0 L132.1 62.2 L135.3 64.6 L141.1 65.2 L147.6 68.9 L189.6 96.2 L197.6 104.1 L204.0 106.7 L212.5 104.8 L220.7 111.2 L239.5 117.3 L241.0 120.7 L240.5 121.5 L240.2 122.2 L241.0 123.1 L251.3 126.2 L254.0 126.0 L258.6 123.3 L259.9 122.0 L260.5 119.5 L265.8 121.0 L274.8 127.0 L285.8 131.5 L308.1 143.7 L321.3 148.1 L325.3 150.5 L322.9 161.3 L330.1 163.6 L338.2 167.9 L347.5 175.7 L377.8 184.1 L389.0 183.6 L397.9 186.6 L406.3 187.6 L421.7 186.8 L427.5 190.5 L430.9 190.9 L442.8 188.5 L466.0 190.1 L475.5 186.5 L487.5 185.4 L487.7 186.6 L489.0 187.7 L492.0 188.0 L497.3 185.0 L497.2 183.4 L498.8 182.8 L512.0 185.4 L521.1 189.1 L527.4 193.4 L525.6 196.1 L530.9 200.5 L547.5 203.3 L554.7 199.6 L560.6 193.2 L564.7 192.7 L571.8 196.3 L577.3 203.0 L583.8 205.4 L598.5 203.9 L606.3 200.0 L613.0 198.8 L613.4 199.3 L612.2 210.2 L619.7 214.2 L632.6 216.7 L647.4 215.7 L659.7 217.5 L667.6 217.0 L679.0 212.3 L682.5 214.7 L687.4 215.5 L696.3 215.7 L700.4 214.1 L709.9 208.3 L721.1 197.6 L732.9 183.4 L741.4 176.9 L746.3 176.0 L746.8 177.7 L743.8 183.0 L742.1 189.3 L747.2 191.9 Z M326.8 1068.7 L325.6 1058.0 L322.6 1041.4 L316.1 1013.4 L309.5 996.8 L318.4 992.4 L321.5 992.3 L329.0 999.6 L330.3 1003.3 L330.7 1021.2 L337.8 1025.2 L340.7 1023.9 L343.0 1022.9 L345.6 1019.5 L348.1 1006.0 L349.4 1004.3 L353.8 1001.4 L363.6 998.0 L365.4 993.7 L376.1 986.2 L378.5 985.5 L388.0 986.7 L406.4 979.1 L420.5 974.6 L430.4 969.0 L423.4 961.0 L417.7 955.9 L413.8 954.0 L403.6 954.0 L396.0 955.4 L392.2 954.0 L387.3 947.6 L373.2 948.6 L364.3 945.4 L361.0 941.5 L365.2 937.2 L367.3 933.3 L362.2 928.3 L362.2 926.3 L358.1 916.4 L340.9 909.3 L323.3 908.3 L316.5 909.0 L308.0 913.2 L304.8 916.9 L303.8 922.2 L308.8 943.3 L309.5 954.6 L315.5 972.1 L308.1 974.4 L300.6 981.4 L291.3 983.4 L293.7 973.5 L295.1 962.7 L296.0 939.4 L294.1 893.0 L292.7 875.8 L289.6 855.3 L290.1 849.3 L288.8 848.1 L287.1 841.1 L284.4 823.5 L278.7 795.0 L266.8 750.4 L264.2 745.4 L259.3 740.6 L257.6 739.6 L251.7 739.0 L245.1 726.0 L242.0 716.8 L239.2 711.0 L235.9 708.5 L230.7 706.4 L228.7 698.6 L227.5 684.9 L223.2 667.4 L219.5 620.2 L215.8 591.4 L349.1 601.4 L585.1 601.8 L591.7 882.5 L716.5 881.0 L735.5 938.3 L734.5 1069.2 L716.2 1068.5 L643.1 1069.8 L326.8 1068.7 Z" fill="var(--land)" stroke="var(--shore)" stroke-width="1"/>
 <path d="M391.3 225.9 L673.9 225.9 L717.4 355.0 L695.7 548.6 L565.2 645.4 L413.0 613.1 L347.8 484.1 L347.8 322.7 Z" fill="var(--park)" stroke="var(--park-edge)" stroke-width="1.5" stroke-dasharray="4 3"/>
@@ -143,76 +120,369 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 <g class="town"><circle cx="743.5" cy="671.2" r="3"/><text x="749.5" y="675.2">Hoodsport</text></g>
 <g class="town"><circle cx="760.9" cy="238.8" r="3"/><text x="766.9" y="242.8">Sequim</text></g>
 <text class="town" x="841.8" y="1022.4" text-anchor="end" font-style="italic">I-5 to Portland ↓</text>
-</svg>
-<div class="legend"><span><i style="background:var(--d1)"></i>Saturday</span><span><i style="background:var(--d2)"></i>Sunday</span><span><i style="background:var(--d3)"></i>Monday</span><span style="color:var(--rust)">Dashed circles: fallback camps</span></div>
-</figure>
-
-<section class="day d1" id="sat">
-<header><h2>Saturday</h2><div class="sub">Portland to Port Angeles along Hood Canal</div><div class="stat">265 mi · about 5 h 15 driving · 1.8 mi hiking</div><div class="prog" data-prog="sat"></div></header>
-<div class="stop" data-id="s1"><input class="chk" type="checkbox"><div><div class="t">10:30</div><div class="title">Leave Portland</div><div class="why">I-5 north to exit 104 at Olympia, then US 101 north. Skip the ferry. Buy the Discover Pass online before Sequim: <a href="https://discoverpass.wa.gov" style="color:var(--slate)">discoverpass.wa.gov</a>.</div></div></div>
-<div class="stop" data-id="s2"><input class="chk" type="checkbox"><div><div class="t">13:30</div><div class="title">Lunch, Hama Hama Oyster Saloon</div><div class="why">Right on 101 in Lilliwaup, on the water. If closed, Hoodsport or push through to Port Angeles.</div><div class="btns"><a class="btn" href="https://maps.apple.com/?daddr=35846%20N%20US%20Hwy%20101%2C%20Lilliwaup%2C%20WA%2098555&dirflg=d">Apple Maps</a><a class="btn o" href="https://www.google.com/maps/dir/?api=1&destination=35846%20N%20US%20Hwy%20101%2C%20Lilliwaup%2C%20WA%2098555&travelmode=driving">Google</a></div></div></div>
-<div class="stop" data-id="s3"><input class="chk" type="checkbox"><div><div class="t">16:00</div><div class="title">Heart O’ the Hills, claim a site</div><div class="why">5 mi up Hurricane Ridge Rd. 97 sites, first-come, <b>$24 card at the kiosk</b>. Pitch the tent and go.</div><div class="btns"><a class="btn" href="https://maps.apple.com/?daddr=48.036355%2C-123.429739&dirflg=d">Apple Maps</a><a class="btn o" href="https://www.google.com/maps/dir/?api=1&destination=48.036355%2C-123.429739&travelmode=driving">Google</a></div></div></div>
-<div class="stop" data-id="s4"><input class="chk" type="checkbox"><div><div class="t">17:00</div><div class="title">Marymere Falls, Lake Crescent</div><div class="why">Storm King Ranger Station lot, 101 milepost 228. <b>1.8 mi, 500 ft</b>, old growth and a 90-ft falls. Sky cleared? Spruce Railroad Trail to Devil’s Punchbowl instead, 2.2 mi flat, swim.</div><div class="btns"><a class="btn" href="https://maps.apple.com/?daddr=48.0581%2C-123.7889&dirflg=d">Apple Maps</a><a class="btn o" href="https://www.google.com/maps/dir/?api=1&destination=48.0581%2C-123.7889&travelmode=driving">Google</a></div></div></div>
-<div class="stop" data-id="s5"><input class="chk" type="checkbox"><div><div class="t">19:15</div><div class="title">Dinner, fuel, groceries in Port Angeles</div><div class="why">Safeway at 110 E 3rd St. Two more days of food, 6 L of water for the ridge. Then back up to camp, 15 min.</div><div class="btns"><a class="btn" href="https://maps.apple.com/?daddr=110%20E%203rd%20St%2C%20Port%20Angeles%2C%20WA%2098362&dirflg=d">Apple Maps</a></div></div></div>
-<a class="gday" href="https://www.google.com/maps/dir/?api=1&origin=2815%20NW%20Upshur%20St%2C%20Portland%2C%20OR%2097210&destination=48.0581%2C-123.7889&waypoints=35846%20N%20US%20Hwy%20101%2C%20Lilliwaup%2C%20WA%2098555%7C48.036355%2C-123.429739&travelmode=driving">Whole day in Google Maps</a>
-<div class="fall">Camp full? <a href="https://maps.apple.com/?daddr=Lyre%20River%20Campground%2C%20Joyce%2C%20WA&dirflg=d">Lyre River</a> (11 sites, water) or Sadie Creek (6 sites) DNR off SR 112 near Joyce, 25 min west, Discover Pass. Then FS 2918 forest pullouts nearby, free.</div>
-</section>
-
-<section class="day d2" id="sun">
-<header><h2>Sunday</h2><div class="sub">Ridge, falls, rainforest camp, coast at sunset</div><div class="stat">150 mi · about 4 h 30 driving · 9 to 13 mi hiking</div><div class="prog" data-prog="sun"></div></header>
-<div class="stop" data-id="u1"><input class="chk" type="checkbox"><div><div class="t">06:00</div><div class="title">Break camp, pack the car completely</div><div class="why">You are not coming back. Coffee, 3 L water each. No water at the ridge.</div></div></div>
-<div class="stop" data-id="u2"><input class="chk" type="checkbox"><div><div class="t">07:00</div><div class="title">Hurricane Hill</div><div class="why">Through the gate by 7. Trailhead is 1.5 mi past the visitor center at road’s end. <b>3.2 mi, 650 ft</b>, paved start, three big switchbacks, Bailey Range and the Strait.</div><div class="btns"><a class="btn" href="https://maps.apple.com/?daddr=47.9766%2C-123.5178&dirflg=d">Apple Maps</a><a class="btn o" href="https://www.google.com/maps/dir/?api=1&destination=47.9766%2C-123.5178&travelmode=driving">Google</a></div></div></div>
-<div class="stop" data-id="u3"><input class="chk" type="checkbox"><div><div class="t">11:00</div><div class="title">Sol Duc Falls</div><div class="why">Down the ridge, west on 101 along Lake Crescent, left on Sol Duc Rd 14 mi to the end. Falls in 0.8 mi, then <b>Lover’s Lane loop, 6 mi total</b>, or falls only at 1.6 mi. Hot springs soak optional.</div><div class="btns"><a class="btn" href="https://maps.apple.com/?daddr=47.9622%2C-123.8499&dirflg=d">Apple Maps</a><a class="btn o" href="https://www.google.com/maps/dir/?api=1&destination=47.9622%2C-123.8499&travelmode=driving">Google</a></div></div></div>
-<div class="stop" data-id="u4"><input class="chk" type="checkbox"><div><div class="t">14:30</div><div class="title">Forks, fuel and Thriftway</div><div class="why">Last services. Signal is back here: check <a href="https://www.recreation.gov/camping/campgrounds/247592" style="color:var(--slate)">Hoh Campground</a> for a tonight cancellation; if one shows, take it over Minnie Peterson.</div><div class="btns"><a class="btn" href="https://maps.apple.com/?daddr=950%20S%20Forks%20Ave%2C%20Forks%2C%20WA%2098331&dirflg=d">Apple Maps</a></div></div></div>
-<div class="stop" data-id="u5"><input class="chk" type="checkbox"><div><div class="t">16:00</div><div class="title">Minnie Peterson, pitch and leave</div><div class="why">Upper Hoh Rd mile 10. 9 sites, pit toilet, no water, <b>Discover Pass on the dash</b>. Set up, lock up, head for the coast.</div><div class="btns"><a class="btn" href="https://maps.apple.com/?daddr=5698%20Upper%20Hoh%20Rd%2C%20Forks%2C%20WA%2098331&dirflg=d">Apple Maps</a><a class="btn o" href="https://www.google.com/maps/dir/?api=1&destination=5698%20Upper%20Hoh%20Rd%2C%20Forks%2C%20WA%2098331&travelmode=driving">Google</a></div></div></div>
-<div class="stop" data-id="u6"><input class="chk" type="checkbox"><div><div class="t">18:15</div><div class="title">Second Beach sunset</div><div class="why">45 min via Forks and SR 110 to La Push. <b>$10 tribal parking</b> at the trailhead or Lonesome Creek Store half a mile back. 0.7 mi down through forest to sea stacks and tidepools, walk the strand for up to 4 mi. Sunset 7:45. Headlamps out.</div><div class="btns"><a class="btn" href="https://maps.apple.com/?daddr=47.8982%2C-124.6238&dirflg=d">Apple Maps</a><a class="btn o" href="https://www.google.com/maps/dir/?api=1&destination=47.8982%2C-124.6238&travelmode=driving">Google</a></div></div></div>
-<div class="stop" data-id="u7"><input class="chk" type="checkbox"><div><div class="t">21:15</div><div class="title">Back at the tent</div><div class="why">45 min back through Forks. Long day, the best one.</div></div></div>
-<a class="gday" href="https://www.google.com/maps/dir/?api=1&origin=48.036355%2C-123.429739&destination=47.8982%2C-124.6238&waypoints=47.9766%2C-123.5178%7C47.9622%2C-123.8499%7C950%20S%20Forks%20Ave%2C%20Forks%2C%20WA%2098331%7C5698%20Upper%20Hoh%20Rd%2C%20Forks%2C%20WA%2098331&travelmode=driving">Whole day in Google Maps</a>
-<div class="fall">Minnie Peterson full? Hoh Oxbow at the 101 bridge (8 sites) or Cottonwood down Oil City Rd, both DNR. Then <a href="https://maps.apple.com/?daddr=South%20Beach%20Campground%2C%20Olympic%20National%20Park%2C%20WA&dirflg=d">South Beach</a>, NPS $20, 55 sites on the bluff south of Kalaloch, no Discover Pass needed, 45 min from La Push.</div>
-</section>
-
-<section class="day d3" id="mon">
-<header><h2>Labor Day</h2><div class="sub">Hoh, the coast, home via Aberdeen</div><div class="stat">235 mi · about 5 h driving · 2 to 7.5 mi hiking</div><div class="prog" data-prog="mon"></div></header>
-<div class="stop" data-id="m1"><input class="chk" type="checkbox"><div><div class="t">07:00</div><div class="title">Break camp</div><div class="why">20 min up the road to the visitor center. Lot fills by 10.</div></div></div>
-<div class="stop" data-id="m2"><input class="chk" type="checkbox"><div><div class="t">07:45</div><div class="title">Hoh Rain Forest</div><div class="why">Hall of Mosses 0.8 mi loop, Spruce Nature Trail 1.2 mi loop, then Hoh River Trail out 2.7 mi to Mineral Creek Falls and back. <b>About 7.5 mi total, flat.</b> Elk early. Short on time: the two loops are the postcard.</div><div class="btns"><a class="btn" href="https://maps.apple.com/?daddr=47.8597%2C-123.9337&dirflg=d">Apple Maps</a><a class="btn o" href="https://www.google.com/maps/dir/?api=1&destination=47.8597%2C-123.9337&travelmode=driving">Google</a></div></div></div>
-<div class="stop" data-id="m3"><input class="chk" type="checkbox"><div><div class="t">12:30</div><div class="title">Ruby Beach</div><div class="why">Out the Hoh road, south on 101, lot on the right. 45 min of sea stacks and driftwood.</div><div class="btns"><a class="btn" href="https://maps.apple.com/?daddr=47.7105%2C-124.4147&dirflg=d">Apple Maps</a><a class="btn o" href="https://www.google.com/maps/dir/?api=1&destination=47.7105%2C-124.4147&travelmode=driving">Google</a></div></div></div>
-<div class="stop" data-id="m4"><input class="chk" type="checkbox"><div><div class="t">13:15</div><div class="title">Lunch, Kalaloch Lodge</div><div class="why">10 min south. Sit-down on the bluff, or picnic at South Beach next door.</div><div class="btns"><a class="btn" href="https://maps.apple.com/?daddr=157151%20US-101%2C%20Forks%2C%20WA%2098331&dirflg=d">Apple Maps</a></div></div></div>
-<div class="stop" data-id="m5"><input class="chk" type="checkbox"><div><div class="t">14:15</div><div class="title">Drive home</div><div class="why">101 south past Quinault, US 12 through Aberdeen, I-5 at Grand Mound. <b>Leave the coast by 2:15</b> and you are home by 6:30 with 90 min of buffer for holiday I-5. Ahead of schedule? 20 min Quinault detour for the world’s largest Sitka spruce.</div><div class="btns"><a class="btn" href="https://maps.apple.com/?daddr=2815%20NW%20Upshur%20St%2C%20Portland%2C%20OR%2097210&dirflg=d">Apple Maps</a><a class="btn o" href="https://www.google.com/maps/dir/?api=1&destination=2815%20NW%20Upshur%20St%2C%20Portland%2C%20OR%2097210&travelmode=driving">Google</a></div></div></div>
-<a class="gday" href="https://www.google.com/maps/dir/?api=1&origin=5698%20Upper%20Hoh%20Rd%2C%20Forks%2C%20WA%2098331&destination=2815%20NW%20Upshur%20St%2C%20Portland%2C%20OR%2097210&waypoints=47.8597%2C-123.9337%7C47.7105%2C-124.4147%7C157151%20US-101%2C%20Forks%2C%20WA%2098331&travelmode=driving">Whole day in Google Maps</a>
-</section>
-
-<h2 id="info">Useful info</h2>
-<details open><summary>Passes and money</summary><p>America the Beautiful covers park entry (normally $30 per car) and Forest Service trailheads. It does not cover Washington DNR land, so Sunday night needs a Discover Pass on the dash: $11 day or $30 annual at <a href="https://discoverpass.wa.gov">discoverpass.wa.gov</a>, screenshot it. It also does not waive campground fees. Kiosks and the park entrance are card only. Second Beach parking is $10 cash or card to the Quileute Tribe.</p></details>
-<details><summary>Fire, water, stove</summary><p>Campfires are banned in the park, the national forest and on DNR land since Aug 7. Charcoal too. Propane and gas stoves with a shutoff valve are fine, three feet of clearance. No potable water at Hurricane Ridge; Heart O’ the Hills has taps, Minnie Peterson has none, so leave Forks with 6 L.</p></details>
-<details><summary>Closures that matter</summary><ul><li>Mora Road closed through Oct 15, so no Rialto Beach. Second Beach replaces it.</li><li>Quinault South Shore Road washed out at mile 8 (not on your route).</li><li>Staircase trails closed except the Rapids Loop (not on your route).</li><li>Hoh Oxbow closes Sep 14 and Bear Creek Sep 15; both fine this weekend.</li><li>Hurricane Ridge parking fills about 9:30 on holidays; Hoh lot 10 to 11.</li></ul><p><a href="https://www.nps.gov/olym/planyourvisit/conditions.htm">Live park alerts</a></p></details>
-<details><summary>Signal, fuel, food</summary><p>Cell drops past Sequim and comes back in Forks. Fuel in Port Angeles Saturday night and Forks Sunday; 101 between Forks and Aberdeen is 100 miles of not much. Port Angeles: Next Door Gastropub, Barhop Brewing, Safeway on E 3rd. Forks: Thriftway on S Forks Ave, Pacific Pizza. Kalaloch Lodge serves lunch on the bluff.</p></details>
-<details><summary>Camping options if plans change</summary><ul><li><b>Park, first-come:</b> Heart O’ the Hills $24 (97), Deer Park $15 (14, 5,400 ft, gravel), South Beach $20 (55, coast), Graves Creek and North Fork $20 (Quinault), Queets $15, Ozette $20.</li><li><b>Park, reservation-only this weekend:</b> Hoh, Kalaloch, Sol Duc, Fairholme, Staircase. Refresh recreation.gov for cancellations.</li><li><b>Forest Service, first-come:</b> Klahowya $17 on 101 at the Sol Duc River, Dungeness Forks near Sequim, Lena Creek and Hamma Hamma on Hood Canal.</li><li><b>DNR, free with Discover Pass:</b> Lyre River, Sadie Creek (north shore), Bear Creek (101 at Sappho), Minnie Peterson, Hoh Oxbow, Cottonwood, South Fork Hoh (Hoh road), Coppermine Bottom (Clearwater).</li><li><b>Dispersed, free:</b> anywhere in Olympic National Forest outside a campground, 14 days, no fires. FS 2918 near Joyce is the closest to the ridge.</li></ul></details>
-<details><summary>Hike swaps</summary><ul><li>Bigger Sunday morning: Klahhane Ridge loop from the Switchback trailhead, about 7 mi, 2,000 ft, goats. Costs you the Sol Duc loop.</li><li>Lake Crescent with a view: Mount Storm King, 4.1 mi, 2,000 ft, ropes at the top, from the same Marymere lot.</li><li>Quieter coast: Third Beach, 3.6 mi, from the lot 1 mi before Second Beach on SR 110.</li><li>Monday shorter: Hall of Mosses and Spruce loops only, 2 mi, then more time at Ruby Beach.</li></ul></details>
-<details><summary>Full research page</summary><p>Weather comparison with Rainier, the full camping map and table, all three itinerary options and the hike menu: <a href="https://claude.ai/code/artifact/5c0c8898-fcf8-4805-8d2e-f18a925ffe50">Olympic Labor Day Run</a>.</p></details>
-
-<button class="reset" type="button" id="reset">Clear all checkmarks</button>
-</div>
-
-<script>
+</svg></template>
+<script id="trip-data" type="application/json">{
+ "eyebrow": "Sat Sep 5 to Mon Sep 7, 2026 · Ian and Johnna",
+ "title": "Olympic Grand Loop",
+ "intro": "Ridge Sunday morning, rainforest camp Sunday night, coast at sunset, home the other way around. Tap a checkbox as you finish each stop; it syncs to every phone with the link. Green buttons open turn-by-turn directions from wherever you are.",
+ "summary": "<b>The plan in one breath.<\/b> Leave 10:30, oysters on Hood Canal at 1:30, tent up at Heart O’ the Hills by 4, easy falls walk on Lake Crescent, dinner in Port Angeles. Sunday: Hurricane Hill at 7, Sol Duc Falls loop at 11, Forks for fuel, pitch at Minnie Peterson (free, Discover Pass) by 4, Second Beach for the 7:45 sunset. Monday (rerouted, the Hoh line was two hours): Ruby Beach before the 11 am high tide, Quinault rainforest with no gate, lunch at Lake Quinault Lodge, out by 2:00, Cape Disappointment at 4, home over the Astoria bridge about 7:15. Campfires are banned everywhere; the propane stove is the kitchen. Total: about 740 miles, about 14 miles on foot, $24 in camp fees plus a $11 Discover Pass and $10 beach parking.",
+ "weatherNote": "NWS point forecasts issued Fri Sep 4, 11:26 pm; Labor Day card refreshed Mon Sep 7, 6:05 am. Re-check with the links below each morning once you have signal.",
+ "weather": [
+  {
+   "day": "Saturday",
+   "mood": "bad",
+   "headline": "Showers on the ridge, clearing",
+   "hilo": "Ridge 51 / 40<br>Coast 60 / 53",
+   "text": "Hurricane Ridge 60% rain, possible thunder before 3 pm. Lowlands 30% before 11 am then sunny. Travel day, stay low."
+  },
+  {
+   "day": "Sunday",
+   "mood": "good",
+   "headline": "Sunny",
+   "hilo": "Ridge 56 / 42<br>Coast 60 / 55",
+   "text": "Zero precip in the forecast anywhere. Hoh valley high 67. Sunset 7:45 pm at La Push."
+  },
+  {
+   "day": "Labor Day",
+   "mood": "good",
+   "headline": "Sunny inland, marine layer coast",
+   "hilo": "Hoh 63 / 51<br>Coast 66 / 50",
+   "text": "Hoh 63, unchanged. Coast a touch warmer at 66: morning fog and possible light drizzle at Ruby Beach and Kalaloch, 0% measurable rain, clearing by afternoon."
+  }
+ ],
+ "links": [
+  {
+   "label": "Hurricane Ridge forecast",
+   "url": "https://forecast.weather.gov/MapClick.php?lat=47.9691&lon=-123.4986"
+  },
+  {
+   "label": "Sol Duc forecast",
+   "url": "https://forecast.weather.gov/MapClick.php?lat=47.9622&lon=-123.8499"
+  },
+  {
+   "label": "Hoh Rain Forest forecast",
+   "url": "https://forecast.weather.gov/MapClick.php?lat=47.8607&lon=-123.9348"
+  },
+  {
+   "label": "La Push forecast",
+   "url": "https://forecast.weather.gov/MapClick.php?lat=47.9060&lon=-124.6300"
+  },
+  {
+   "label": "Kalaloch forecast",
+   "url": "https://forecast.weather.gov/MapClick.php?lat=47.6079&lon=-124.3739"
+  },
+  {
+   "label": "Park alerts and road status",
+   "url": "https://www.nps.gov/olym/planyourvisit/conditions.htm",
+   "alert": true
+  },
+  {
+   "label": "Hoh campground cancellations",
+   "url": "https://www.recreation.gov/camping/campgrounds/247592",
+   "alert": true
+  }
+ ],
+ "mapNote": "Monday line shows the original Hoh route; the actual route continues south past Aberdeen to Cape Disappointment and US 30.",
+ "days": [
+  {
+   "id": "sat",
+   "cls": "d1",
+   "tab": "Sat",
+   "title": "Saturday",
+   "sub": "Portland to Port Angeles along Hood Canal",
+   "stat": "265 mi · about 5 h 15 driving · 1.8 mi hiking",
+   "stops": [
+    {
+     "id": "s1",
+     "time": "10:30",
+     "title": "Leave Portland",
+     "why": "I-5 north to exit 104 at Olympia, then US 101 north. Skip the ferry. Buy the Discover Pass online before Sequim: <a href=\"https://discoverpass.wa.gov\">discoverpass.wa.gov<\/a>."
+    },
+    {
+     "id": "s2",
+     "time": "13:30",
+     "title": "Lunch, Hama Hama Oyster Saloon",
+     "why": "Right on 101 in Lilliwaup, on the water. If closed, Hoodsport or push through to Port Angeles.",
+     "nav": "35846 N US Hwy 101, Lilliwaup, WA 98555",
+     "google": true
+    },
+    {
+     "id": "s3",
+     "time": "16:00",
+     "title": "Heart O’ the Hills, claim a site",
+     "why": "5 mi up Hurricane Ridge Rd. 97 sites, first-come, <b>$24 card at the kiosk<\/b>. Pitch the tent and go.",
+     "nav": "48.036355,-123.429739",
+     "google": true
+    },
+    {
+     "id": "s4",
+     "time": "17:00",
+     "title": "Marymere Falls, Lake Crescent",
+     "why": "Storm King Ranger Station lot, 101 milepost 228. <b>1.8 mi, 500 ft<\/b>, old growth and a 90-ft falls. Sky cleared? Spruce Railroad Trail to Devil’s Punchbowl instead, 2.2 mi flat, swim.",
+     "nav": "48.0581,-123.7889",
+     "google": true
+    },
+    {
+     "id": "s5",
+     "time": "19:15",
+     "title": "Dinner, fuel, groceries in Port Angeles",
+     "why": "Safeway at 110 E 3rd St. Two more days of food, 6 L of water for the ridge. Then back up to camp, 15 min.",
+     "nav": "110 E 3rd St, Port Angeles, WA 98362",
+     "google": false
+    }
+   ],
+   "gday": "https://www.google.com/maps/dir/?api=1&origin=2815%20NW%20Upshur%20St%2C%20Portland%2C%20OR%2097210&destination=48.0581%2C-123.7889&waypoints=35846%20N%20US%20Hwy%20101%2C%20Lilliwaup%2C%20WA%2098555%7C48.036355%2C-123.429739&travelmode=driving",
+   "fallback": "Camp full? <a href=\"https://maps.apple.com/?daddr=Lyre%20River%20Campground%2C%20Joyce%2C%20WA&dirflg=d\">Lyre River<\/a> (11 sites, water) or Sadie Creek (6 sites) DNR off SR 112 near Joyce, 25 min west, Discover Pass. Then FS 2918 forest pullouts nearby, free."
+  },
+  {
+   "id": "sun",
+   "cls": "d2",
+   "tab": "Sun",
+   "title": "Sunday",
+   "sub": "Ridge, falls, rainforest camp, coast at sunset",
+   "stat": "150 mi · about 4 h 30 driving · 9 to 13 mi hiking",
+   "stops": [
+    {
+     "id": "u1",
+     "time": "06:00",
+     "title": "Break camp, pack the car completely",
+     "why": "You are not coming back. Coffee, 3 L water each. No water at the ridge."
+    },
+    {
+     "id": "u2",
+     "time": "07:00",
+     "title": "Hurricane Hill",
+     "why": "Through the gate by 7. Trailhead is 1.5 mi past the visitor center at road’s end. <b>3.2 mi, 650 ft<\/b>, paved start, three big switchbacks, Bailey Range and the Strait.",
+     "nav": "47.9766,-123.5178",
+     "google": true
+    },
+    {
+     "id": "u3",
+     "time": "11:00",
+     "title": "Sol Duc Falls",
+     "why": "Down the ridge, west on 101 along Lake Crescent, left on Sol Duc Rd 14 mi to the end. Falls in 0.8 mi, then <b>Lover’s Lane loop, 6 mi total<\/b>, or falls only at 1.6 mi. Hot springs soak optional.",
+     "nav": "47.9622,-123.8499",
+     "google": true
+    },
+    {
+     "id": "u4",
+     "time": "14:30",
+     "title": "Forks, fuel and Thriftway",
+     "why": "Last services. Signal is back here: check <a href=\"https://www.recreation.gov/camping/campgrounds/247592\">Hoh Campground<\/a> for a tonight cancellation; if one shows, take it over Minnie Peterson.",
+     "nav": "950 S Forks Ave, Forks, WA 98331",
+     "google": false
+    },
+    {
+     "id": "u5",
+     "time": "16:00",
+     "title": "Minnie Peterson, pitch and leave",
+     "why": "Upper Hoh Rd mile 10. 9 sites, pit toilet, no water, <b>Discover Pass on the dash<\/b>. Set up, lock up, head for the coast.",
+     "nav": "5698 Upper Hoh Rd, Forks, WA 98331",
+     "google": true
+    },
+    {
+     "id": "u6",
+     "time": "18:15",
+     "title": "Second Beach sunset",
+     "why": "45 min via Forks and SR 110 to La Push. <b>$10 tribal parking<\/b> at the trailhead or Lonesome Creek Store half a mile back. 0.7 mi down through forest to sea stacks and tidepools, walk the strand for up to 4 mi. Sunset 7:45. Headlamps out.",
+     "nav": "47.8982,-124.6238",
+     "google": true
+    },
+    {
+     "id": "u7",
+     "time": "21:15",
+     "title": "Back at the tent",
+     "why": "45 min back through Forks. Long day, the best one."
+    }
+   ],
+   "gday": "https://www.google.com/maps/dir/?api=1&origin=48.036355%2C-123.429739&destination=47.8982%2C-124.6238&waypoints=47.9766%2C-123.5178%7C47.9622%2C-123.8499%7C950%20S%20Forks%20Ave%2C%20Forks%2C%20WA%2098331%7C5698%20Upper%20Hoh%20Rd%2C%20Forks%2C%20WA%2098331&travelmode=driving",
+   "fallback": "Minnie Peterson full? Hoh Oxbow at the 101 bridge (8 sites) or Cottonwood down Oil City Rd, both DNR. Then <a href=\"https://maps.apple.com/?daddr=South%20Beach%20Campground%2C%20Olympic%20National%20Park%2C%20WA&dirflg=d\">South Beach<\/a>, NPS $20, 55 sites on the bluff south of Kalaloch, no Discover Pass needed, 45 min from La Push."
+  },
+  {
+   "id": "mon",
+   "cls": "d3",
+   "tab": "Mon",
+   "title": "Labor Day",
+   "sub": "Rerouted 8 am: Hoh line was two hours. Coast, Quinault rainforest, then the scenic way home down the coast",
+   "stat": "330 mi · about 6 h 15 driving · 1 to 5 mi hiking",
+   "stops": [
+    {
+     "id": "m1",
+     "time": "08:30",
+     "title": "Ruby Beach",
+     "why": "Roadside lot on 101, no station, no line. Sea stacks and the Cedar Creek mouth. <b>High tide is 10:58<\/b>, so walk it now while there is sand. Beach 4 tidepools are underwater until afternoon; skip them. Coffee at Kalaloch Lodge on the way past.",
+     "nav": "47.7105,-124.4147",
+     "google": true
+    },
+    {
+     "id": "m2",
+     "time": "10:50",
+     "title": "World’s Largest Sitka Spruce, Lake Quinault",
+     "why": "101 south 50 min, left on South Shore Rd, park at Rain Forest Resort Village. 0.3 mi to a 191-ft, thousand-year-old tree. Olympic National Forest: <b>no gate, no line<\/b>, America the Beautiful covers it.",
+     "nav": "516 S Shore Rd, Quinault, WA 98575",
+     "google": true
+    },
+    {
+     "id": "m3",
+     "time": "11:15",
+     "title": "Quinault Rain Forest Nature Trail and Loop",
+     "why": "Trailhead lot on South Shore Rd by Willaby Campground. The <b>0.5 mi nature loop<\/b> is the Hall of Mosses stand-in; keep going on the <b>Quinault Loop Trail, 4 mi<\/b> through cedar bog and along the lake if legs allow. Then 6 mi up South Shore Rd to roadside Merriman Falls; the road closes at mile 8, turn around there.",
+     "nav": "Quinault Rain Forest Nature Trail, Quinault, WA",
+     "google": true
+    },
+    {
+     "id": "m4",
+     "time": "13:00",
+     "title": "Lunch, Lake Quinault Lodge",
+     "why": "1926 lodge, Roosevelt Dining Room on the lake. <b>Back in the car by 2:00 sharp.<\/b> That is the number that keeps the coast route inside your 8 pm line.",
+     "nav": "345 S Shore Rd, Quinault, WA 98575",
+     "google": false
+    },
+    {
+     "id": "m5",
+     "time": "14:00",
+     "title": "Drive the coast: Quinault to Cape Disappointment",
+     "why": "101 south through Aberdeen, Raymond and South Bend, then along Willapa Bay to Ilwaco. About 2 h. Discover Pass on the dash for the state park.",
+     "nav": "Cape Disappointment State Park, Ilwaco, WA 98624",
+     "google": true
+    },
+    {
+     "id": "m6",
+     "time": "16:00",
+     "title": "Cape Disappointment",
+     "why": "North Head Lighthouse first (0.3 mi from its own lot, best view per minute), then the Lewis and Clark bluff, the Battery Harvey Allen bunkers and Waikiki Beach from the interpretive center lot. Cape D Lighthouse trail, <b>1.2 mi round trip<\/b>, only if on schedule. <b>Leave by 5:00.<\/b>",
+     "nav": "North Head Lighthouse, Ilwaco, WA",
+     "google": true
+    },
+    {
+     "id": "m7",
+     "time": "17:00",
+     "title": "Home over the Astoria bridge, US 30",
+     "why": "Astoria-Megler Bridge, then US 30 east along the Columbia. About 2 h 15. Home around 7:15 with 45 min of buffer. Ahead of schedule: Astoria Column, 10 min off US 30, 164 steps, 20 min total.",
+     "nav": "2815 NW Upshur St, Portland, OR 97210",
+     "google": true
+    }
+   ],
+   "gday": "https://www.google.com/maps/dir/?api=1&origin=47.7105%2C-124.4147&destination=2815%20NW%20Upshur%20St%2C%20Portland%2C%20OR%2097210&waypoints=516%20S%20Shore%20Rd%2C%20Quinault%2C%20WA%2098575%7C345%20S%20Shore%20Rd%2C%20Quinault%2C%20WA%2098575%7CCape%20Disappointment%20State%20Park%2C%20Ilwaco%2C%20WA%2098624&travelmode=driving",
+   "fallback": "Behind schedule at Quinault? Bail on the coast route: 101 to Aberdeen, US 12 to I-5 at Grand Mound, about 3 h to Portland from Quinault. Leaving Quinault as late as 4:30 still gets you home by 8 that way."
+  }
+ ],
+ "info": [
+  {
+   "title": "Passes and money",
+   "open": true,
+   "html": "<p>America the Beautiful covers park entry (normally $30 per car) and Forest Service trailheads. It does not cover Washington DNR land, so Sunday night needs a Discover Pass on the dash: $11 day or $30 annual at <a href=\"https://discoverpass.wa.gov\">discoverpass.wa.gov<\/a>. It also does not waive campground fees. Kiosks and the park entrance are card only. Second Beach parking is $10 cash or card to the Quileute Tribe.<\/p>"
+  },
+  {
+   "title": "Fire, water, stove",
+   "html": "<p>Campfires are banned in the park, the national forest and on DNR land since Aug 7. Charcoal too. Propane and gas stoves with a shutoff valve are fine, three feet of clearance. No potable water at Hurricane Ridge; Heart O’ the Hills has taps, Minnie Peterson has none, so leave Forks with 6 L.<\/p>"
+  },
+  {
+   "title": "Closures that matter",
+   "html": "<ul><li>Mora Road closed through Oct 15, so no Rialto Beach. Second Beach replaces it.<\/li><li>Hoh Rain Forest entrance had a two-hour line at 8 am on Labor Day. Quinault (national forest, no gate) is the substitute.<\/li><li>Quinault South Shore Road washed out at mile 8.<\/li><li>Staircase trails closed except the Rapids Loop.<\/li><li>Hurricane Ridge parking fills about 9:30 on holidays.<\/li><\/ul><p><a href=\"https://www.nps.gov/olym/planyourvisit/conditions.htm\">Live park alerts<\/a><\/p>"
+  },
+  {
+   "title": "Signal, fuel, food",
+   "html": "<p>Cell drops past Sequim and comes back in Forks. Fuel in Port Angeles Saturday night and Forks Sunday; 101 between Forks and Aberdeen is 100 miles of not much. Port Angeles: Next Door Gastropub, Barhop Brewing, Safeway on E 3rd. Forks: Thriftway on S Forks Ave, Pacific Pizza. Kalaloch Lodge and Lake Quinault Lodge both serve lunch.<\/p>"
+  },
+  {
+   "title": "Camping options if plans change",
+   "html": "<ul><li><b>Park, first-come:<\/b> Heart O’ the Hills $24 (97), Deer Park $15 (14, 5,400 ft, gravel), South Beach $20 (55, coast), Graves Creek and North Fork $20 (Quinault), Queets $15, Ozette $20.<\/li><li><b>Park, reservation-only in summer:<\/b> Hoh, Kalaloch, Sol Duc, Fairholme, Staircase. Refresh recreation.gov for cancellations.<\/li><li><b>Forest Service, first-come:<\/b> Klahowya $17 on 101 at the Sol Duc River, Dungeness Forks near Sequim, Lena Creek and Hamma Hamma on Hood Canal.<\/li><li><b>DNR, free with Discover Pass:<\/b> Lyre River, Sadie Creek (north shore), Bear Creek (101 at Sappho), Minnie Peterson, Hoh Oxbow, Cottonwood, South Fork Hoh (Hoh road), Coppermine Bottom (Clearwater).<\/li><li><b>Dispersed, free:<\/b> anywhere in Olympic National Forest outside a campground, 14 days, no fires. FS 2918 near Joyce is the closest to the ridge.<\/li><\/ul>"
+  },
+  {
+   "title": "Hike swaps",
+   "html": "<ul><li>Bigger Sunday morning: Klahhane Ridge loop from the Switchback trailhead, about 7 mi, 2,000 ft, goats. Costs you the Sol Duc loop.<\/li><li>Lake Crescent with a view: Mount Storm King, 4.1 mi, 2,000 ft, ropes at the top, from the same Marymere lot.<\/li><li>Quieter coast: Third Beach, 3.6 mi, from the lot 1 mi before Second Beach on SR 110.<\/li><\/ul>"
+  },
+  {
+   "title": "How this page works",
+   "html": "<p>Everything on this page is one block of data inside the file. Checkboxes publish a new version so every phone with the link sees the same state (viewers without edit access keep checkmarks on their own phone only). To change the plan from a Claude chat, paste the page link and say what to change; the data block gets edited and republished. Full research page: <a href=\"https://claude.ai/code/artifact/5c0c8898-fcf8-4805-8d2e-f18a925ffe50\">Olympic Labor Day Run<\/a>.<\/p>"
+  }
+ ],
+ "checks": {}
+}</script>
+<script id="app">
 (function(){
-  var KEY='olympic-loop-2026';
-  var state={};
-  try{state=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){state={}}
-  var stops=document.querySelectorAll('.stop');
-  function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
-  function paint(){
-    stops.forEach(function(s){var id=s.getAttribute('data-id');var on=!!state[id];s.classList.toggle('done',on);s.querySelector('.chk').checked=on;});
-    document.querySelectorAll('.day').forEach(function(d){
-      var all=d.querySelectorAll('.stop'),done=d.querySelectorAll('.stop.done');
-      var p=d.querySelector('.prog'); if(p){p.textContent=done.length===all.length?'Day complete':(done.length+' of '+all.length+' stops done');}
+  var dataEl=document.getElementById('trip-data');
+  var data=JSON.parse(dataEl.textContent);
+  var MAP=document.getElementById('map-src').innerHTML;
+  var root=document.getElementById('root');
+  var artifactNs=null, readOnly=false, saving=false;
+  var LS='olympic-loop-2026-local';
+  var local={}; try{local=JSON.parse(localStorage.getItem(LS)||'{}')}catch(e){}
+
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+  function apple(nav){return 'https://maps.apple.com/?daddr='+encodeURIComponent(nav)+'&dirflg=d'}
+  function google(nav){return 'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(nav)+'&travelmode=driving'}
+  function isDone(id){return !!(data.checks[id] || (readOnly && local[id]))}
+
+  function render(){
+    var h='';
+    h+='<div class="eyebrow">'+esc(data.eyebrow)+'</div><h1>'+esc(data.title)+'</h1>';
+    h+='<p style="color:var(--ink-2);margin-top:8px;font-size:15.5px">'+esc(data.intro)+'</p>';
+    h+='<nav class="tabs">'+data.days.map(function(d){return '<a href="#'+d.id+'" class="'+d.cls+'">'+esc(d.tab)+'</a>'}).join('')+'<a href="#info">Info</a></nav>';
+    h+='<div class="sum">'+data.summary+'</div>';
+    h+='<h2>Weather</h2><p style="font-size:14px;color:var(--ink-3)">'+esc(data.weatherNote)+'</p><div class="wx">';
+    data.weather.forEach(function(w){h+='<div class="c"><div><div class="d">'+esc(w.day)+'</div><div class="t '+w.mood+'">'+esc(w.headline)+'</div></div><div class="hi">'+w.hilo+'</div><div class="s">'+esc(w.text)+'</div></div>'});
+    h+='</div><div class="wxlinks">'+data.links.map(function(l){return '<a class="chip'+(l.alert?' alert':'')+'" href="'+esc(l.url)+'">'+esc(l.label)+'</a>'}).join('')+'</div>';
+    h+='<h2>Map</h2><figure>'+MAP+'<div class="legend"><span><i style="background:var(--d1)"></i>Saturday</span><span><i style="background:var(--d2)"></i>Sunday</span><span><i style="background:var(--d3)"></i>Monday</span><span style="color:var(--rust)">Dashed circles: fallback camps</span></div>';
+    if(data.mapNote) h+='<p style="font-size:12.5px;color:var(--ink-3);margin-top:6px">'+esc(data.mapNote)+'</p>';
+    h+='</figure>';
+    data.days.forEach(function(d){
+      var done=d.stops.filter(function(s){return isDone(s.id)}).length;
+      h+='<section class="day '+d.cls+'" id="'+d.id+'"><header><h2>'+esc(d.title)+'</h2><div class="sub">'+esc(d.sub)+'</div><div class="stat">'+esc(d.stat)+'</div><div class="prog">'+(done===d.stops.length?'Day complete':done+' of '+d.stops.length+' stops done')+'</div></header>';
+      d.stops.forEach(function(s){
+        var on=isDone(s.id);
+        h+='<div class="stop'+(on?' done':'')+'" data-id="'+s.id+'"><input class="chk" type="checkbox"'+(on?' checked':'')+(readOnly&&!artifactNs?'':'')+'><div><div class="t">'+esc(s.time)+'</div><div class="title">'+esc(s.title)+'</div><div class="why">'+s.why+'</div>';
+        if(s.nav){h+='<div class="btns"><a class="btn" href="'+esc(apple(s.nav))+'">Apple Maps</a>'+(s.google!==false?'<a class="btn o" href="'+esc(google(s.nav))+'">Google</a>':'')+'</div>'}
+        h+='</div></div>';
+      });
+      if(d.gday) h+='<a class="gday" href="'+esc(d.gday)+'">Whole day in Google Maps</a>';
+      if(d.fallback) h+='<div class="fall">'+d.fallback+'</div>';
+      h+='</section>';
+    });
+    h+='<h2 id="info">Useful info</h2>';
+    data.info.forEach(function(i){h+='<details'+(i.open?' open':'')+'><summary>'+esc(i.title)+'</summary>'+i.html+'</details>'});
+    h+='<button class="reset" type="button" id="reset">Clear all checkmarks</button>';
+    h+='<div class="ro" id="status">'+(readOnly?'Read-only link: checkmarks stay on this phone.':'')+'</div>';
+    root.innerHTML=h;
+    root.querySelectorAll('.stop').forEach(function(el){
+      el.querySelector('.chk').addEventListener('change',function(){toggle(el.getAttribute('data-id'),this.checked)});
+    });
+    document.getElementById('reset').addEventListener('click',function(){
+      var keys=Object.keys(data.checks); var next={}; commit(next);
     });
   }
-  stops.forEach(function(s){
-    var chk=s.querySelector('.chk');
-    chk.addEventListener('change',function(){state[s.getAttribute('data-id')]=chk.checked;save();paint();});
-  });
-  document.getElementById('reset').addEventListener('click',function(){state={};save();paint();});
-  paint();
+
+  function fullDocument(d){
+    var headHtml=document.querySelector('title').outerHTML+'\n'+document.querySelector('link[rel=stylesheet]').outerHTML+'\n'+document.querySelector('style').outerHTML;
+    var js=document.getElementById('app').textContent;
+    return '<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">\n'+headHtml+'\n</head><body>\n<div class="wrap" id="root"></div>\n<template id="map-src">'+MAP+'</template>\n<script id="trip-data" type="application/json">'+JSON.stringify(d,null,1).replace(/<\//g,'<\\/')+'<\/script>\n<script id="app">'+js+'<\/script>\n</body></html>';
+  }
+
+  function toggle(id,on){
+    if(readOnly||!artifactNs){ if(on) local[id]=true; else delete local[id]; try{localStorage.setItem(LS,JSON.stringify(local))}catch(e){} render(); return; }
+    var next=JSON.parse(JSON.stringify(data.checks)); if(on) next[id]=true; else delete next[id];
+    commit(next);
+  }
+  function commit(nextChecks){
+    if(readOnly||!artifactNs){ local=nextChecks; try{localStorage.setItem(LS,JSON.stringify(local))}catch(e){} render(); return; }
+    if(saving) return; saving=true;
+    var d=JSON.parse(JSON.stringify(data)); d.checks=nextChecks;
+    data.checks=nextChecks; render();
+    document.getElementById('status').innerHTML='<span class="saving">Syncing to everyone…</span>';
+    artifactNs.publish(fullDocument(d)).then(function(){/* view reloads */}).catch(function(e){
+      saving=false;
+      if(e&&(e.code==='not_writer'||e.code==='not_granted'||e.code==='not_declared'||e.code==='capability_disabled')){readOnly=true; local=nextChecks; try{localStorage.setItem(LS,JSON.stringify(local))}catch(x){} render(); return;}
+      if(e&&e.code==='conflict'){return;}
+      document.getElementById('status').textContent='Could not sync ('+(e&&e.code||'error')+'). Checkmark kept on this phone.';
+      local=nextChecks; try{localStorage.setItem(LS,JSON.stringify(local))}catch(x){}
+    });
+  }
+
+  render();
+  if(window.claude&&window.claude.use){
+    window.claude.use('artifact').then(function(ns){ if(ns){artifactNs=ns;} else {readOnly=true;} render(); });
+  } else { readOnly=true; render(); }
 })();
 </script>
 </body></html>
