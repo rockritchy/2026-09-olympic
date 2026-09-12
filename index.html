@@ -400,6 +400,56 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
  ],
  "checks": {}
 }</script>
+<script id="plan-override">
+(function(){
+  var h = location.hash || '';
+  var i = h.indexOf('o=');
+  if (i < 0) return;
+  var raw = h.slice(i + 2);
+  function banner(txt, warn) {
+    document.addEventListener('DOMContentLoaded', function () {
+      var b = document.createElement('div');
+      b.setAttribute('style', 'position:sticky;top:0;z-index:99;padding:11px 14px;font:600 14px/1.4 system-ui,-apple-system,sans-serif;color:#fff;background:' + (warn ? '#9b2c2c' : '#1d6f42'));
+      b.innerHTML = txt + ' <a href="' + location.pathname + '" style="color:#fff;text-decoration:underline">Original plan</a>';
+      document.body.insertBefore(b, document.body.firstChild);
+    });
+  }
+  var o;
+  try { o = JSON.parse(decodeURIComponent(raw)); }
+  catch (e) { banner('Update link was malformed. Showing the original plan.', 1); return; }
+  var el = document.getElementById('trip-data');
+  var d;
+  try { d = JSON.parse(el.textContent); } catch (e) { return; }
+  var touched = false;
+  var days = d.days || [];
+  days.forEach(function (day) {
+    day.stops = day.stops.filter(function (s) {
+      var p = o[s.id];
+      if (!p) return true;
+      if (p.drop) { touched = true; return false; }
+      for (var k in p) { if (k !== 'drop') { s[k] = p[k]; touched = true; } }
+      return true;
+    });
+  });
+  (o.add || []).forEach(function (a) {
+    var day = days.filter(function (x) { return x.id === a.day; })[0];
+    if (!day) return;
+    var s = { id: a.id || ('x' + Math.random().toString(36).slice(2, 7)), time: a.time || '', title: a.title || '', why: a.why || '' };
+    if (a.nav) s.nav = a.nav;
+    if (a.google) s.google = a.google;
+    day.stops.push(s);
+    touched = true;
+  });
+  if (touched) {
+    days.forEach(function (day) {
+      day.stops.sort(function (x, y) { return (x.time || '').localeCompare(y.time || ''); });
+    });
+    el.textContent = JSON.stringify(d);
+  }
+  banner(o.msg ? 'Plan changed: ' + o.msg : 'Plan changed.', 0);
+})();
+</script>
+
 <script id="app">
 (function(){
   var dataEl=document.getElementById('trip-data');
